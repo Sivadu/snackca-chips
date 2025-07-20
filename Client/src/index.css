@@ -1,0 +1,349 @@
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+ color-scheme: light dark;
+color: rgba(255, 255, 255, 0.87);  /* White text */
+background-color: #ffdb8c;         /* Light background */
+
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+body {
+  padding-top: 80px; /* Adjust depending on your navbar height */
+}
+
+/* Navbar */
+/* Remove nav item dots and spacing issues */
+.navbar-nav {
+  list-style: none;
+  margin-bottom: 0;
+}
+.navbar-nav .nav-link {
+  font-size: 14px !important; /* add !important if Bootstrap overrides */
+}
+
+/* Link Hover */
+.custom-link:hover {
+  color: orange !important;
+  border-bottom: 2px solid orange;
+}
+
+/* Custom Order Now Button */
+.custom-orange-btn {
+  background-color: orange;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+.custom-orange-btn:hover {
+  background-color: darkorange;
+  color: white;
+}
+
+/* Optional: reduce font size on small devices */
+@media (max-width: 768px) {
+  .navbar-nav .nav-link {
+    font-size: 14px;
+  }
+}
+
+/*  Hero Section */
+.hero-section {
+  background-color: #fff0db;
+}
+
+.text-orange {
+  color: #e69500;
+}
+
+.btn-warning {
+  background-color: orange;
+  border-color: orange;
+}
+
+.btn-warning:hover {
+  background-color: darkorange;
+  border-color: darkorange;
+}
+
+/* CategoriesSection */
+.category-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.category-card:hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.category-icon {
+  font-size: 2.5rem;
+}
+
+.category-title {
+  color: #4A2C0A; /* Deep brown */
+}
+
+.category-subtitle {
+  font-size: 0.85rem;
+  color: #888;
+}
+
+/* BananaChipsSection */
+/* Chip card hover effect */
+.chip-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 12px;
+}
+
+.chip-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
+}
+
+.card .btn:hover {
+  background-color: #e69500 !important;
+}
+
+/* JackfruitChipsSection */
+.product-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 0.5rem;
+}
+
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 24px rgba(0, 0, 0, 0.1);
+}
+
+/* why choose us */
+/* in your index.css or component-specific CSS */
+.feature-icon:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+}
+/* flavors page  */
+/* src/index.css */
+.hover-raise { transition: transform .25s, box-shadow .25s; cursor:pointer; }
+.hover-raise:hover { transform: translateY(-6px); box-shadow:0 8px 18px rgba(0,0,0,.08); }
+
+.auth-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 2rem 1rem;
+}
+
+.auth-wrapper .container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 500px;
+  background: #fff;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+}
+
+.auth-wrapper .header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 1.5rem;
+}
+
+.auth-wrapper .text {
+  color: #ff9800; /* yellow-orange */
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.auth-wrapper .underline {
+  width: 61px;
+  height: 6px;
+  background: #ffc107;
+  border-radius: 9px;
+}
+
+.auth-wrapper .inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.auth-wrapper .input {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  background: #f5f5f5;
+  border-radius: 8px;
+}
+
+.auth-wrapper .input img {
+  width: 24px;
+  height: 24px;
+  margin-right: 1rem;
+}
+
+.auth-wrapper .input input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  color: #444;
+}
+
+.auth-wrapper .forgot-password {
+  margin-top: 1rem;
+  color: #999;
+  font-size: 0.95rem;
+  padding-left: 0.5rem;
+}
+
+.auth-wrapper .forgot-password span {
+  color: #ff9800;
+  cursor: pointer;
+}
+
+.auth-wrapper .submit-container {
+  display: flex;
+  gap: 1rem;
+  margin: 2rem auto;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.auth-wrapper .submit {
+  background: #ff9800;
+  color: white;
+  border-radius: 30px;
+  padding: 0.8rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.auth-wrapper .submit:hover {
+  background: #ffc107;
+}
+
+.auth-wrapper .gray {
+  background: #e0e0e0;
+  color: #555;
+}
+
+.auth-wrapper .google-login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  width: 100%;
+  max-width: 280px;
+  height: 50px;
+  margin-bottom: 20px;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  gap: 12px;
+  transition: background 0.3s ease;
+}
+
+.auth-wrapper .google-login:hover {
+  background-color: #f5f5f5;
+}
+
+.auth-wrapper .google-icon {
+  height: 24px;
+  width: 24px;
+}
+
+/* 🔁 Responsive */
+@media screen and (max-width: 600px) {
+  .auth-wrapper .container {
+    padding: 1.5rem 1rem;
+  }
+
+  .auth-wrapper .input {
+    flex-direction: row;
+    height: auto;
+  }
+
+  .auth-wrapper .text {
+    font-size: 2rem;
+  }
+
+  .auth-wrapper .input input {
+    font-size: 1rem;
+  }
+
+  .auth-wrapper .submit {
+    padding: 0.6rem 1.5rem;
+    font-size: 0.95rem;
+  }
+}
+/* already have an account part */
+.toggle-auth span {
+  cursor: pointer;
+  color: #000000; /* Optional: to make it look clickable */
+  font-weight: 500;
+  text-decoration: underline; /* Optional: to mimic a link */
+}
+
+/* forget Password modal */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.modal-box {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 10px;
+  text-align: center;
+  width: 300px;
+  max-width: 80%;
+}
+
+.modal-box input {
+  padding: 0.5rem;
+  width: 100%;
+  margin: 1rem 0;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: space-around;
+}
+
+.modal-buttons button {
+  padding: 0.5rem 1rem;
+  border: none;
+  background-color: #f33;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
