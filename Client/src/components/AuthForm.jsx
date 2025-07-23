@@ -1,17 +1,19 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signInWithPopup,
-  sendPasswordResetEmail
+  sendPasswordResetEmail,
 } from "firebase/auth";
 import { auth, provider } from "../firebase";
+
 import user_icon from "../assets/person.png";
 import email_icon from "../assets/email.png";
 import password_icon from "../assets/password.png";
 import google_icon from "../assets/google.png";
-import '../index.css';
+import "../index.css";
 
 const AuthForm = () => {
   const [action, setAction] = useState("Login");
@@ -44,11 +46,21 @@ const AuthForm = () => {
   const handleGoogleLogin = async () => {
     try {
       const result = await signInWithPopup(auth, provider);
-      alert(`Welcome ${result.user.displayName}`);
+      const { uid, displayName, email, photoURL } = result.user;
+
+      // Send user info to backend
+      await axios.post("http://localhost:5000/api/auth/register", {
+        uid,
+        name: displayName,
+        email,
+        photoURL,
+      });
+
+      alert(`Welcome ${displayName}`);
       navigate("/");
     } catch (error) {
-      console.error("❌ Google login error:", error);
-      alert("Google Sign-in failed");
+      console.error("❌ Google login or backend register failed:", error.message);
+      alert("Google Sign-in failed: " + error.message);
     }
   };
 
@@ -77,7 +89,7 @@ const AuthForm = () => {
         <div className="inputs">
           {action === "Sign Up" && (
             <div className="input">
-              <img src={user_icon} alt="" />
+              <img src={user_icon} alt="user" />
               <input
                 type="text"
                 placeholder="Enter Name"
@@ -87,7 +99,7 @@ const AuthForm = () => {
             </div>
           )}
           <div className="input">
-            <img src={email_icon} alt="" />
+            <img src={email_icon} alt="email" />
             <input
               type="email"
               placeholder="Enter E-mail"
@@ -99,7 +111,7 @@ const AuthForm = () => {
             />
           </div>
           <div className="input">
-            <img src={password_icon} alt="" />
+            <img src={password_icon} alt="password" />
             <input
               type="password"
               placeholder="Enter Password"

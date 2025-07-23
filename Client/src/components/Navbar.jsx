@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { auth } from "../firebase";
 import { onAuthStateChanged } from "firebase/auth";
 import logo from "../assets/logo.png";
+import "../index.css"; 
 
 const Navbar = () => {
   const [user, setUser] = useState(null);
@@ -49,26 +50,30 @@ const Navbar = () => {
               <Link className="nav-link fw-semibold text-dark" to="/contact" onClick={handleNavLinkClick}>CONTACT</Link>
             </li>
 
-            {user ? (
-              <>
-                <li className="nav-item mx-2">
-                  <Link className="btn btn-warning text-white fw-semibold" to="/order">
-                    Order Now
-                  </Link>
-                </li>
-                <li className="nav-item ms-3">
-                  <Link to="/dashboard">
-                    <i className="bi bi-person-circle fs-3 text-dark"></i>
-                  </Link>
-                </li>
-              </>
-            ) : (
-              <li className="nav-item ms-3">
-                <Link to="/auth" className="btn btn-warning text-white fw-semibold d-flex align-items-center">
-                  <i className="bi bi-person-circle me-2"></i>Sign Up/Login
-                </Link>
-              </li>
-            )}
+           {user ? (
+  <>
+    <li className="nav-item ms-3">
+      <Link to="/order" className="btn btn-danger fw-semibold">
+        Order Now
+      </Link>
+    </li>
+    <li className="nav-item ms-3 d-flex align-items-center">
+      <img
+        src={user.photoURL}
+        alt="Profile"
+        style={{ width: "32px", height: "32px", borderRadius: "50%" }}
+        title={user.displayName}
+      />
+    </li>
+  </>
+) : (
+  <li className="nav-item ms-3">
+    <Link to="/auth" className="btn btn-warning text-white fw-semibold d-flex align-items-center">
+      <i className="bi bi-person-circle me-2"></i>Sign Up/Login
+    </Link>
+  </li>
+)}
+
           </ul>
         </div>
       </div>

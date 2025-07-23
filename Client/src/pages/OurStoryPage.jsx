@@ -1,18 +1,22 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 
 const OurStoryPage = () => {
+  const [story, setStory] = useState(null);
+
+  useEffect(() => {
+    axios.get("http://localhost:5000/api/pages/our-story")
+      .then(res => setStory(res.data));
+  }, []);
+
+  if (!story) return <p>Loading...</p>;
+
   return (
     <section className="container py-5 mt-5">
-      <h2 className="fw-bold mb-4">Our Story</h2>
-      <p className="lead">
-        Banana Chips Co. started with a simple mission: to bring the authentic taste of Kerala’s finest banana chips to every household.
-      </p>
-      <p>
-        From a small kitchen setup to a fully equipped unit, our journey has been driven by love for traditional flavors, ethical sourcing, and honest snacking.
-      </p>
-      <p>
-        Today, we continue to handcraft each batch with care, combining time-honored methods with modern hygiene standards to deliver you the crispiest and tastiest snacks.
-      </p>
+      <h2 className="fw-bold mb-4">{story.title}</h2>
+      {story.content.map((para, i) => (
+        <p key={i}>{para}</p>
+      ))}
     </section>
   );
 };
